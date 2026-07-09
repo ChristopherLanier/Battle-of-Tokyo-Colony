@@ -1,56 +1,82 @@
 package org.example;
 import java.util.Scanner;
-class Tokyo{
 
-    private int sakunaHealth;
-    private String playerName;
-    private String attackName;
-
-    //getters
-    public int getSakunaHealth(){
-        return sakunaHealth;
-    }
-    public String getPlayerName(){
-        return playerName;
-    }
-    public String getAttackName(){
-        return attackName;
-    }
-    //setters
-    public void setSakunaHealth(int sakunaHealth) {
-        this.sakunaHealth = sakunaHealth;
-    }
-    public void setPlayerName(String playerName){
-        this.playerName = playerName;
-    }
-    public void setAttackName(String attackName) {
-        this.attackName = attackName;
-    }
-    //methods
 public class Main {
+    public static class Fighter{
+        private String sorcerer;
+        private int sakunaHealth;
+        private String attackName;
+        private int attackHp;
+
+
+        //getters- retrieve fields
+        public String getSorcerer() {
+            return sorcerer;
+        }
+        public int getSakunaHealth() {
+            return sakunaHealth;
+        }
+        public String getAttackName() {
+            return attackName;
+        }
+        public int getAttackHp() {
+            return attackHp;
+        }
+
+        //setters - update fields
+        public void setSorcerer(String sorcerer) {
+            this.sorcerer = sorcerer;
+        }
+        public void setSakunaHealth(int sakunaHealth) {
+            this.sakunaHealth = sakunaHealth;
+        }
+        public void setAttackName(String attackName) {
+            this.attackName = attackName;
+        }
+        public void setAttackHp(int attackHp) {
+            this.attackHp = attackHp;
+        }
+
+
+
+
+
+
+
 
 
 
     }
-    public static void main(String[] args) {
-        String userPlayer;
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Choose your player: test");
-        userPlayer = sc.nextLine();
-        //object created
-        Tokyo colony = new Tokyo();
-        //object's field 'playerName' updated
-        colony.setPlayerName(userPlayer);
-        //printed to display success
-        System.out.println("You chose: "+colony.getPlayerName());
 
-        /*int sakunaHealth = 100;
+
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Choose your sorcerer: 1.Maki");
+        int userSorcerer = sc.nextInt();
+        String updateSorcerer = null;
+        if(userSorcerer == 1){
+             updateSorcerer = "Maki";
+        }
+        Fighter opponent = new Fighter();
+        opponent.setSorcerer(updateSorcerer);
+        //shows conversion from user menu to updating fieLd was successful
+        System.out.println(opponent.getSorcerer());
+        //
+     /*   System.out.println("Choose Maki");
+        System.out.println("use slice");
+
+
+
+
+        int sakunaHealth = 100;
 
         //This block needs to run until Sakuna is defeated (health <= 0)
         do {
 
 
-            Scanner sc = new Scanner(System.in);
+            //Scanner sc = new Scanner(System.in);
             System.out.println("");
             System.out.println("Choose your player, 1.Maki 2.Yuta 3.Yuji");
             int userPlayer = sc.nextInt();
@@ -128,7 +154,7 @@ public class Main {
         //informs user of Sakuna's defeat
         if(sakunaHealth <= 0){
             System.out.println("You did it,Sakuna has been defeated!!");
-        }
-        //*/
+        }*/
+
     }
 }
