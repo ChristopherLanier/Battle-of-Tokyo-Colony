@@ -8,6 +8,8 @@ public class Main {
         private String attackName;
         private int attackHp;
 
+        //may need a constructor for sakuna health
+
 
         //getters- retrieve fields
         public String getSorcerer() {
@@ -37,12 +39,31 @@ public class Main {
             this.attackHp = attackHp;
         }
 
-
-
-
-
-
-
+        //moves
+        public void katanaSlice(){
+           sakunaHealth -= 30;
+        }
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Fighter opponent = new Fighter();
+        //set sakuna's health to 100
+        opponent.setSakunaHealth(100);
+        //user chooses sorcerer
+        System.out.println("Choose your sorcerer: 1.Maki");
+        int userSorcerer = sc.nextInt();
+        sc.nextLine();
+        //user chooses attack
+        System.out.println("Choose your attack: 1a.Slice");
+        String userAttack = sc.nextLine();
+        //control flow based upon user input
+        if(userSorcerer == 1 && userAttack.equals("1a")){
+            opponent.setSorcerer("Maki");
+            opponent.katanaSlice();
+            opponent.getSakunaHealth();
+        }
+        //display results
+        System.out.println("Sakuna's health is "+opponent.sakunaHealth+"%!\n"+ "Keep going you're not done yet!");
 
 
 
@@ -50,20 +71,6 @@ public class Main {
 
 
 
-    public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Choose your sorcerer: 1.Maki");
-        int userSorcerer = sc.nextInt();
-        String updateSorcerer = null;
-        if(userSorcerer == 1){
-             updateSorcerer = "Maki";
-        }
-        Fighter opponent = new Fighter();
-        opponent.setSorcerer(updateSorcerer);
-        //shows conversion from user menu to updating fieLd was successful
-        System.out.println(opponent.getSorcerer());
-        //
      /*   System.out.println("Choose Maki");
         System.out.println("use slice");
 
@@ -156,5 +163,19 @@ public class Main {
             System.out.println("You did it,Sakuna has been defeated!!");
         }*/
 
-    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
