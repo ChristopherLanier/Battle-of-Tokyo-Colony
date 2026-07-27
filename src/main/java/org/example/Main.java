@@ -43,33 +43,55 @@ public class Main {
         public void katanaSlice(){
            sakunaHealth -= 30;
         }
+        public void dragonBoneSlash(){
+            sakunaHealth -= 20;
+        }
     }
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+
+        //fighter class object, needed to access methods and attributes of class
         Fighter opponent = new Fighter();
+
         //set sakuna's health to 100
         opponent.setSakunaHealth(100);
-        //user chooses sorcerer
-        System.out.println("Choose your sorcerer: 1.Maki");
-        int userSorcerer = sc.nextInt();
-        sc.nextLine();
-        //user chooses attack
-        System.out.println("Choose your attack: 1a.Slice");
-        String userAttack = sc.nextLine();
-        //control flow based upon user input
-        if(userSorcerer == 1 && userAttack.equals("1a")){
-            opponent.setSorcerer("Maki");
-            opponent.katanaSlice();
-            opponent.getSakunaHealth();
-        }
-        //display results
-        System.out.println("Sakuna's health is "+opponent.sakunaHealth+"%!\n"+ "Keep going you're not done yet!");
+
+        do {
+            Scanner sc = new Scanner(System.in);
 
 
 
+            //user chooses sorcerer
+            System.out.println("Choose your sorcerer: 1.Maki");
+            int userSorcerer = sc.nextInt();
+            sc.nextLine();
+
+            //user chooses attack
+            System.out.println("Choose your attack: 1a.Slice 2a.Vertical Slash");
+            String userAttack = sc.nextLine();
+
+            //control flow for Maki
+            if (userSorcerer == 1) {
+                opponent.setSorcerer("Maki");
+                if (userAttack.equals("1a")) {
+                    opponent.katanaSlice();
+                    opponent.getSakunaHealth();
+                } else if (userAttack.equals("2a")) {
+                    opponent.dragonBoneSlash();
+                    opponent.getSakunaHealth();
+                }
+
+            }
+
+            //display results
+            if(opponent.sakunaHealth <= 0){
+                System.out.println("Sakuna has been defeated");
+            } else if (opponent.sakunaHealth > 0) {
+                System.out.println("Sakuna's health is " + opponent.sakunaHealth + "%!\n" + "Keep going you're not done yet!");
+            }
+
+
+        } while (opponent.getSakunaHealth() > 0);
     }
-
-
 
      /*   System.out.println("Choose Maki");
         System.out.println("use slice");
