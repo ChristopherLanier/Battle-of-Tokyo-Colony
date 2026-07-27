@@ -1,14 +1,111 @@
 package org.example;
 import java.util.Scanner;
+
 public class Main {
+    public static class Fighter{
+        private String sorcerer;
+        private int sakunaHealth;
+        private String attackName;
+        private int attackHp;
+
+        //may need a constructor for sakuna health
+
+
+        //getters- retrieve fields
+        public String getSorcerer() {
+            return sorcerer;
+        }
+        public int getSakunaHealth() {
+            return sakunaHealth;
+        }
+        public String getAttackName() {
+            return attackName;
+        }
+        public int getAttackHp() {
+            return attackHp;
+        }
+
+        //setters - update fields
+        public void setSorcerer(String sorcerer) {
+            this.sorcerer = sorcerer;
+        }
+        public void setSakunaHealth(int sakunaHealth) {
+            this.sakunaHealth = sakunaHealth;
+        }
+        public void setAttackName(String attackName) {
+            this.attackName = attackName;
+        }
+        public void setAttackHp(int attackHp) {
+            this.attackHp = attackHp;
+        }
+
+        //moves
+        public void katanaSlice(){
+           sakunaHealth -= 30;
+        }
+        public void dragonBoneSlash(){
+            sakunaHealth -= 20;
+        }
+    }
     public static void main(String[] args) {
+
+        //fighter class object, needed to access methods and attributes of class
+        Fighter opponent = new Fighter();
+
+        //set sakuna's health to 100
+        opponent.setSakunaHealth(100);
+
+        do {
+            Scanner sc = new Scanner(System.in);
+
+
+
+            //user chooses sorcerer
+            System.out.println("Choose your sorcerer: 1.Maki");
+            int userSorcerer = sc.nextInt();
+            sc.nextLine();
+
+            //user chooses attack
+            System.out.println("Choose your attack: 1a.Slice 2a.Vertical Slash");
+            String userAttack = sc.nextLine();
+
+            //control flow for Maki
+            if (userSorcerer == 1) {
+                opponent.setSorcerer("Maki");
+                if (userAttack.equals("1a")) {
+                    opponent.katanaSlice();
+                    opponent.getSakunaHealth();
+                } else if (userAttack.equals("2a")) {
+                    opponent.dragonBoneSlash();
+                    opponent.getSakunaHealth();
+                }
+
+            }
+
+            //display results
+            if(opponent.sakunaHealth <= 0){
+                System.out.println("Sakuna has been defeated");
+            } else if (opponent.sakunaHealth > 0) {
+                System.out.println("Sakuna's health is " + opponent.sakunaHealth + "%!\n" + "Keep going you're not done yet!");
+            }
+
+
+        } while (opponent.getSakunaHealth() > 0);
+    }
+
+     /*   System.out.println("Choose Maki");
+        System.out.println("use slice");
+
+
+
+
         int sakunaHealth = 100;
 
         //This block needs to run until Sakuna is defeated (health <= 0)
         do {
 
 
-            Scanner sc = new Scanner(System.in);
+            //Scanner sc = new Scanner(System.in);
             System.out.println("");
             System.out.println("Choose your player, 1.Maki 2.Yuta 3.Yuji");
             int userPlayer = sc.nextInt();
@@ -86,7 +183,21 @@ public class Main {
         //informs user of Sakuna's defeat
         if(sakunaHealth <= 0){
             System.out.println("You did it,Sakuna has been defeated!!");
-        }
-        //
-    }
+        }*/
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
